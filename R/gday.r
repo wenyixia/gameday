@@ -16,11 +16,13 @@
 #' \code{FALSE} otherwise
 #' @keywords misc
 #' @note case in \code{team} is ignored
+#' @note city name gives the same results as team name
 #' @export
 #' @examples
 #' gday()
 #' gday("canadiens", "2014-11-17")
 #' gday("Bruins")
+#' gday("Vancouver")
 gday <- function(team = "canucks", date = Sys.Date()) {
 	if(internet_connection() == FALSE) {
 		stop('Sorry, unable to connect to the Internet.

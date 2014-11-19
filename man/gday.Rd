@@ -28,11 +28,14 @@ by firing up your web browser.
 }
 \note{
 case in \code{team} is ignored
+
+city name gives the same results as team name
 }
 \examples{
 gday()
 gday("canadiens", "2014-11-17")
 gday("Bruins")
+gday("Vancouver")
 }
 \keyword{misc}
 

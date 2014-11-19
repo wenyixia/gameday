@@ -4,15 +4,15 @@
 #' a particular day.
 #'
 #' You know the problem: You're in your office writing R code and
-#' suddenly have the urge to check whether your NHL team has a game today.
+#' suddenly have the urge to check what are the game scores of the NHL teams
+#' on a particular day.
 #' Before you know it you just wasted 15 minutes browsing the lastest
 #' news on your favorite hockey webpage.
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
 #'
 #' @param date Defaults to today
-#' @return Logical \code{TRUE} if \code{team} has an NHL game on a particular \code{date},
-#' \code{FALSE} otherwise
+#' @return a data.frame about NHL game information on a particular \code{date}
 #' @keywords misc
 #' @note case in \code{team} is ignored
 #' @export
