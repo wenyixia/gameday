@@ -26,6 +26,7 @@ library(gameday)
 ```
 ?gday
 ?score
+?arena_team
 gday("canucks")
 gday("Vancouver", "2014-11-09")
 score()
