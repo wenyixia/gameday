@@ -57,3 +57,4 @@ Build > Build & Reload in R Studio
 
 * Here is the [HTML Preview](http://htmlpreview.github.io/?https://raw.githubusercontent.com/wenyixia/gameday/master/overview.html) of the gameday vignette
 
+* Here is the [link](http://127.0.0.1:21408/session/Rvig.2a446b5327fb.html) created by `browseVignettes(package = "gameday")` 

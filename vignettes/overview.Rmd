@@ -114,10 +114,10 @@ Lastly, cut off your internet connection and call `gday()` or `scores()`. Both f
 
 ## How this package was made
 
-The [Class Activity 1] and [Class Activity 2] lead us to a package that is half-made. Based on it, I recorded my workflow below.
+The [Class Activity 1](http://stat545-ubc.github.io/packages02_activity.html) and [Class Activity 2](http://stat545-ubc.github.io/packages03_activity_part2.html#vignette) lead us to a package that is half-made. Based on it, I recorded my workflow below.
 
 #### Helper function `Internet_connection()`
-Following the instructions of the [Homework in Package], I first tried to add the function `Internet_connection()`. I copied the function that is already provided in the homework.
+Following the instructions of the [Homework](http://stat545-ubc.github.io/hw10_package.html), I first tried to add the function `Internet_connection()`. I copied the function that is already provided in the homework.
 
 ```
 internet_connection <- function() {
@@ -167,7 +167,7 @@ so that everytime I run `devtools::test()`, I will know which context it is test
 	}
 ```
 
-I did not use `assertthat` as suggested in the [Homework](), since `if()` and `stop()` have more informative return. Then I also add tests about `gday()`. 
+I did not use `assertthat` as suggested in the [Homework](http://stat545-ubc.github.io/hw10_package.html), since `if()` and `stop()` have more informative return. Then I also add tests about `gday()`. 
 
 Sometimes you need to clean the objects created in `Environment` before `Build & Reload`. As you run those R scripts, objects with the same names will be created in the `Environment`. Thus R sometimes gets confused about whether you are testing a function in a package or your are using the function that you created in the `Environment`.
 
