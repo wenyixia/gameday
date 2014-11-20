@@ -13,13 +13,13 @@ Here is a brief guidline of how to use and/or test it.
 
 * Install `gameday` from GitHub:
 ```
-devtools::install_github("wenyixia/gapminder")
+devtools::install_github("wenyixia/gameday")
 ```
 
 * Load and test it:
 
 ```
-library(gapminder)
+library(gameday)
 ```
  
 * Try out these functions:
