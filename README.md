@@ -4,6 +4,7 @@ gameday
 gameday is a R package that could help you check:
 * Whether you NHL team has a gameday on a particular day?
 * What's the game results of the NHL teams on a particular day?
+
 in a fast and easy way.
 
 Here is a brief guidline of how to use and/or test it.
