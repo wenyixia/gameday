@@ -10,7 +10,7 @@
 
 <meta name="author" content="Wenyi Xia" />
 
-<meta name="date" content="2014-11-19" />
+<meta name="date" content="2014-11-20" />
 
 <title>Overview of gameday</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Overview of gameday</h1>
 <h4 class="author"><em>Wenyi Xia</em></h4>
-<h4 class="date"><em>2014-11-19</em></h4>
+<h4 class="date"><em>2014-11-20</em></h4>
 </div>
 
 
@@ -85,9 +85,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Now you could go to the <a href="http://www.nhl.com/">NHL webpage</a> to check the information, which must be consistent with the result returned by <code>gday()</code>.</p>
 <p>Let’s then play with the <code>team</code> argument.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Predators&quot;</span>)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Nashville&quot;</span>)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <p>Team names and home city names return this same result.</p>
 <p>What if the city does not have a NHL team or you make a typo in the name? It will return a error specifying the problem.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Seattle&quot;</span>)</code></pre>
@@ -110,9 +110,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>As you type <code>?scores</code> in <code>R console</code>, you will know that <code>scores()</code> returns a data.frame about NHL game information on a particular day.</p>
 <p>The default value is today.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scores</span>()</code></pre>
-<pre><code>##                 home                away home_score away_score
-## 1 NY RANGERS RANGERS PHILADELPHIA FLYERS          2          0
-## 2    EDMONTON OILERS   VANCOUVER CANUCKS          4          5</code></pre>
+<pre><code>##                   home                away home_score away_score
+## 1  PHILADELPHIA FLYERS      MINNESOTA WILD                      
+## 2  TORONTO MAPLE LEAFS TAMPA BAY LIGHTNING                      
+## 3   MONTREAL CANADIENS      ST LOUIS BLUES                      
+## 4      OTTAWA SENATORS NASHVILLE PREDATORS                      
+## 5        WINNIPEG JETS   DETROIT RED WINGS                      
+## 6         DALLAS STARS     ARIZONA COYOTES                      
+## 7   COLORADO AVALANCHE WASHINGTON CAPITALS                      
+## 8       CALGARY FLAMES  CHICAGO BLACKHAWKS                      
+## 9    VANCOUVER CANUCKS       ANAHEIM DUCKS                      
+## 10   LOS ANGELES KINGS CAROLINA HURRICANES                      
+## 11     SAN JOSE SHARKS    FLORIDA PANTHERS</code></pre>
 <p>If you want to know the game infomation on a particular day, then type in the date.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scores</span>(<span class="st">&quot;2014-11-19&quot;</span>)</code></pre>
 <pre><code>##                 home                away home_score away_score
@@ -125,10 +134,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </div>
 <div id="how-this-package-was-made" class="section level2">
 <h2>How this package was made</h2>
-<p>The [Class Activity 1] and [Class Activity 2] lead us to a package that is half-made. Based on it, I recorded my workflow below.</p>
+<p>The <a href="http://stat545-ubc.github.io/packages02_activity.html">Class Activity 1</a> and <a href="http://stat545-ubc.github.io/packages03_activity_part2.html#vignette">Class Activity 2</a> lead us to a package that is half-made. Based on it, I recorded my workflow below.</p>
 <div id="helper-function-internet_connection" class="section level4">
 <h4>Helper function <code>Internet_connection()</code></h4>
-<p>Following the instructions of the [Homework in Package], I first tried to add the function <code>Internet_connection()</code>. I copied the function that is already provided in the homework.</p>
+<p>Following the instructions of the <a href="http://stat545-ubc.github.io/hw10_package.html">Homework</a>, I first tried to add the function <code>Internet_connection()</code>. I copied the function that is already provided in the homework.</p>
 <pre><code>internet_connection &lt;- function() {
   tryCatch({RCurl::getURL(&quot;www.google.com&quot;); TRUE},
     error = function(err) FALSE)
@@ -159,7 +168,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre><code>    if(check_date(date) == FALSE) {
         stop('Sorry, the date is invalid.')
     }</code></pre>
-<p>I did not use <code>assertthat</code> as suggested in the <a href>Homework</a>, since <code>if()</code> and <code>stop()</code> have more informative return. Then I also add tests about <code>gday()</code>.</p>
+<p>I did not use <code>assertthat</code> as suggested in the <a href="http://stat545-ubc.github.io/hw10_package.html">Homework</a>, since <code>if()</code> and <code>stop()</code> have more informative return. Then I also add tests about <code>gday()</code>.</p>
 <p>Sometimes you need to clean the objects created in <code>Environment</code> before <code>Build &amp; Reload</code>. As you run those R scripts, objects with the same names will be created in the <code>Environment</code>. Thus R sometimes gets confused about whether you are testing a function in a package or your are using the function that you created in the <code>Environment</code>.</p>
 </div>
 <div id="add-data-in-the-package" class="section level4">
