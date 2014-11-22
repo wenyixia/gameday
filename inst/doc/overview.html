@@ -74,7 +74,6 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;wenyixia/gameday&quot;</span>)</code></pre>
 <p>Load the package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gameday)</code></pre>
-<pre><code>## Error in library(gameday): there is no package called 'gameday'</code></pre>
 </div>
 <div id="play-with-the-function-gday" class="section level2">
 <h2>Play with the function <code>gday()</code></h2>
@@ -82,43 +81,46 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>After you install and load the <code>gameday</code> package, in your <code>R Console</code>, you could type <code>?gday</code> to read the documentation of this function. There are two arguments in the <code>gday()</code> function. They are <code>team</code> and <code>date</code>.</p>
 <p>The default of <code>gday()</code> is <code>team = &quot;canucks&quot;</code> and <code>date = Sys.Date()</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>()</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p>Now you could go to the <a href="http://www.nhl.com/">NHL webpage</a> to check the information, which must be consistent with the result returned by <code>gday()</code>.</p>
 <p>Let’s then play with the <code>team</code> argument.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Predators&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Nashville&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p>Team names and home city names return this same result.</p>
 <p>What if the city does not have a NHL team or you make a typo in the name? It will return a error specifying the problem.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Seattle&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#gday(&quot;Seattle&quot;)</span></code></pre>
 <p>How do I know that the <code>team</code> input is valid or not? Thanks to the data <code>arena_team</code> in this package. <code>arena_team</code> gives NHL Team Names with the corresponding home city and arena. Type <code>?arena_team</code> in <code>R Console</code> and you will see the detailed documentation.</p>
 <p>Cases are ignored in the fucntion.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;VANCOUVER&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;vancouver&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p>The default of argument <code>date</code> is today. Let’s then play with the <code>date</code> argument.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Flames&quot;</span>, <span class="st">&quot;2014-11-16&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p>What if the format of the <code>date</code> input is wrong? It will tell you the problem.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gday</span>(<span class="st">&quot;Flames&quot;</span>, <span class="st">&quot;201-411-116&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;gday&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#gday(&quot;Flames&quot;, &quot;201-411-116&quot;)</span></code></pre>
 </div>
 <div id="play-with-the-function-scores" class="section level2">
 <h2>Play with the function <code>scores()</code></h2>
 <p>As you type <code>?scores</code> in <code>R console</code>, you will know that <code>scores()</code> returns a data.frame about NHL game information on a particular day.</p>
 <p>The default value is today.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scores</span>()</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;scores&quot;</code></pre>
+<pre><code>##                    home                   away home_score away_score
+## 1   PITTSBURGH PENGUINS NY ISLANDERS ISLANDERS          2          4
+## 2 COLUMBUS BLUE JACKETS          BOSTON BRUINS          2          0
+## 3       EDMONTON OILERS      NEW JERSEY DEVILS</code></pre>
 <p>If you want to know the game infomation on a particular day, then type in the date.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scores</span>(<span class="st">&quot;2014-11-19&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;scores&quot;</code></pre>
-<p>If your input date is an invalid date, it will give you an error like this.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">scores</span>(<span class="st">&quot;201-411-19&quot;</span>)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;scores&quot;</code></pre>
+<pre><code>##                 home                away home_score away_score
+## 1 NY RANGERS RANGERS PHILADELPHIA FLYERS          2          0
+## 2    EDMONTON OILERS   VANCOUVER CANUCKS          4          5</code></pre>
+<p>If your input date is an invalid date, it will give you an error.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#scores(&quot;201-411-19&quot;)</span></code></pre>
 <p>Lastly, cut off your internet connection and call <code>gday()</code> or <code>scores()</code>. Both function will throw you an error telling you that there is no internet connnection.</p>
+<p>Note that in the above examples, I used <code>#</code> for functions that would return an error because otherwise when I <code>Build &gt; Check</code>, there would be errors for sourcing <code>overview.R</code>.</p>
 </div>
 <div id="how-this-package-was-made" class="section level2">
 <h2>How this package was made</h2>

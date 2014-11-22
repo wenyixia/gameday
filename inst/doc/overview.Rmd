@@ -64,7 +64,7 @@ Team names and home city names return this same result.
 What if the city does not have a NHL team or you make a typo in the name? It will return a error specifying the problem.
 
 ```{r}
-gday("Seattle")
+#gday("Seattle")
 ```
 
 How do I know that the `team` input is valid or not? Thanks to the data `arena_team` in this package. `arena_team` gives NHL Team Names with the corresponding home city and arena. Type `?arena_team` in `R Console` and you will see the detailed documentation.
@@ -85,7 +85,7 @@ gday("Flames", "2014-11-16")
 What if the format of the `date` input is wrong? It will tell you the problem.
 
 ```{r}
-gday("Flames", "201-411-116")
+#gday("Flames", "201-411-116")
 ```
 
 ## Play with the function `scores()`
@@ -104,13 +104,15 @@ If you want to know the game infomation on a particular day, then type in the da
 scores("2014-11-19")
 ```
 
-If your input date is an invalid date, it will give you an error like this.
+If your input date is an invalid date, it will give you an error.
 
 ```{r}
-scores("201-411-19")
+#scores("201-411-19")
 ```
 
 Lastly, cut off your internet connection and call `gday()` or `scores()`. Both function will throw you an error telling you that there is no internet connnection.
+
+Note that in the above examples, I used `#` for functions that would return an error because otherwise when I `Build > Check`, there would be errors for sourcing `overview.R`.
 
 ## How this package was made
 
