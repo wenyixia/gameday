@@ -1,7 +1,7 @@
 gameday
 =======================
 
-gameday is a R package that could help you check:
+`gameday` is a R package that could help you check:
 * Whether you NHL team has a gameday on a particular day?
 * What's the game results of the NHL teams on a particular day?
 
@@ -22,7 +22,7 @@ devtools::install_github("wenyixia/gameday")
 library(gameday)
 ```
  
-* Try out these functions:
+* Try out some functions:
 ```
 ?gday
 ?score
@@ -33,6 +33,7 @@ score()
 score("11111")
 ...
 ```
+* use `browseVignettes(package = "gameday")` to read vignettes
 
 
 ### Clone my gameday repository
